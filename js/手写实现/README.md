@@ -2,6 +2,8 @@
 
 #### call 和 apply 的区别是什么，哪个性能更好一些？并实现
 
+#### promise的原理？手写
+
 #### 模拟实现一个 Promise.finally
 
 #### 介绍下 Promise.all 使用、原理实现及错误处理
