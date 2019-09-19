@@ -15,9 +15,9 @@
 new做了什么？
 
 - 它创建了一个全新的对象
-- 它会被执行[[Prototype]]（也就是**proto**）链接
-- 它使this指向新创建的对象
-- 如果函数没有返回对象类型Object(包含Functoin, Array, Date, RegExg, Error)，那么new表达式中的函数调用将返回该对象引用
+- 将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象）；
+- 执行构造函数中的代码（为这个新对象添加属性）；
+- 返回新对象。如果函数没有返回对象类型Object(包含Functoin, Array, Date, RegExg, Error)，那么new表达式中的函数调用将返回该对象引用
 
 
 
