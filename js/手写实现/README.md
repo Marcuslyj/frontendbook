@@ -12,6 +12,34 @@
 
 #### 如何实现一个 new
 
+new做了什么？
+
+- 它创建了一个全新的对象
+- 它会被执行[[Prototype]]（也就是**proto**）链接
+- 它使this指向新创建的对象
+- 如果函数没有返回对象类型Object(包含Functoin, Array, Date, RegExg, Error)，那么new表达式中的函数调用将返回该对象引用
+
+
+
+实现
+
+```js
+function objectFactory() {
+    // 创建新对象
+    const obj = new Object()
+    // 取出构造函数
+    const Constructor = [].shift.call(arguments)
+    // 修改原型指向
+    obj.__proto__ = Constructor.prototype
+    // 执行构造函数
+    const ret = Constructor.apply(obj, arguments)
+    // 若构造函数返回对象，则返回该对象
+    return ret !== null && (typeof ret === 'object' || typeof ret === 'function') ? ret : obj
+}
+```
+
+
+
 #### 使用迭代的方式实现 flatten 函数。
 
 #### 实现一个 sleep 函数
