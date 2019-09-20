@@ -54,3 +54,31 @@ function objectFactory() {
 
 #### 手写Object.freeze
 
+#### 代码模拟实现事件循环
+
+#### a与a.b与a.b.c这种多重与访问，简化（判空麻烦，使用代理自动填充属性）
+
+```js
+let obj = {
+    a: {
+        b: {
+            c: {
+                d: 'hhefie'
+            }
+        }
+    }
+}
+function Folder(obj) {
+    return new Proxy(obj ? obj : {}, {
+        get: (target, property) => {
+            if (!(property in target)) {
+                target[property] = new Folder()
+            }
+
+            return target[property]
+        }
+    })
+}
+let fo = new Folder(obj)
+```
+
