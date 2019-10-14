@@ -18,3 +18,6 @@ function promisify(original) {
 }
 ```
 
+
+
+### 模拟实现一个 Promise.finally
