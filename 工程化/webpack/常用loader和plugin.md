@@ -20,6 +20,26 @@
 
 可以做base64 转换
 
+#### postcss-loader
+
+autoprefixer
+
+#### px2rem-loader
+
++手淘lib-flexible库
+
+#### raw-loader
+
+内联html、js等
+
+```ejs
+<sctipt>$require('raw-loader!babel-loader!./meta.html')</sctipt>
+```
+
+```ejs
+<sctipt>$require('raw-loader!babel-loader!../node_modules/lib-flexible')</sctipt>
+```
+
 
 
 

@@ -20,7 +20,9 @@
 
 
 
-打包体积更小？
+#### 打包体积更小？
+
+公共资源分离（基础库分离）
 
 
 
@@ -34,11 +36,15 @@
 
 热更新配置
 
+sourcemap，方便调试定位代码
+
 #### production
 
 文件指纹
 
 代码压缩（html（html-webpack-plugin的minify参数），css（optimize-css-assets-webpack-plugin+cssnano），js（内置uglifyjs-webpack-plugin插件，默认开启））
+
+公共资源分离
 
 
 
