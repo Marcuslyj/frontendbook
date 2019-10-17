@@ -1,3 +1,9 @@
+
+
+
+
+
+
 ## 介绍下 webpack 热更新原理，是如何做到在不刷新浏览器的前提下更新页面的
 
 1.当修改了一个或多个文件；
@@ -11,4 +17,69 @@
 #### webpack 打包 vue 速度太慢怎么办？
 
 #### 打包优化
+
+
+
+打包体积更小？
+
+
+
+构建速读更快？
+
+
+
+## webpack针对不同环境的打包策略？
+
+#### development
+
+热更新配置
+
+#### production
+
+文件指纹
+
+代码压缩（html（html-webpack-plugin的minify参数），css（optimize-css-assets-webpack-plugin+cssnano），js（内置uglifyjs-webpack-plugin插件，默认开启））
+
+
+
+# vue 如何优化首页的加载速度？vue 首页白屏是什么问题引起的？如何解决呢？
+
+首页白屏的原因：
+单页面应用的 html 是靠 js 生成，因为首屏需要加载很大的js文件(`app.js` `vendor.js`)，所以当网速差的时候会产生一定程度的白屏
+
+
+
+体积更小，网络更快，减少加载，提前加载
+
+
+
+解决办法：
+
+1. 优化 webpack 减少模块打包体积（查看每个模块的体积大小，是否可以优化），code-split 按需加载（路由懒加载），去掉dead code
+2. 服务端渲染，在服务端事先拼装好首页所需的 html
+3. 首页加 loading 或 骨架屏 （仅仅是优化体验）
+4. 服务端开启gzip压缩，（前端项目打包可以直接打包出gzip，减少服务器工作量）
+5. 提取公共代码包
+6. cdn
+7. 合理使用resource hint，即preload，prefetch, dns-connect等
+8. 缓存（文件指纹）
+9. 图片方面，像淘宝，会优先使用webp，如果不支持再用jpg，以及，小图采用base64编码，雪碧图等
+
+
+
+# vue 渲染大量数据时应该怎么优化
+
+按需加载局部数据, 虚拟列表，无限下拉刷新
+
+运行异步处理:分割任务
+
+大量纯展示的数据,不需要追踪变化的 用object.freeze冻结
+
+分页处理
+
+
+
+
+
+
 

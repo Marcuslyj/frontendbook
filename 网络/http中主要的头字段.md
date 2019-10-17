@@ -264,5 +264,9 @@ Set-Cookie: status=enable; expires=Tue, 05 Jul 2011 07:26:31 GMT; path=/; domain
 
 
 
+#### max-age和expires区别
 
+expires是http1.0的，绝对时间，但由于客户端和服务端可能存在时间差，导致不准确；
+
+max-age是相对时间
 
