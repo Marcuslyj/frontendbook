@@ -14,6 +14,56 @@
 
 
 
+
+
+## 页面打开速度
+
+几个方面：加载文件的体积小，加载文件的速度快、减少需要加载的文件加载、提前加载、js执行速度
+
+#### 加载文件的体积小
+
+代码压缩：普通压缩（去除空格等）+gzip
+
+代码分割，按需加载（路由懒加载、动态import），基础库分离，提取公用代码
+
+加载文件的速度快
+
+擦除无用代码：treeshaking擦除无用js，    擦除无用的css
+
+ScopeHoisting（减少大量闭包，减少体积，还能减少内存开销，提升性能）
+
+#### 加载文件的速度快（网络和服务器响应速度）
+
+cdn
+
+gzip文件由前端项目构建生成，减少服务器操作
+
+#### 减少需要加载的文件加载
+
+缓存（文件指纹，基础库分离、提取公用代码以方便复用）
+
+资源内联（图标字体等base64）
+
+#### 提前加载
+
+prefetch
+
+prerender？
+
+#### js执行速度
+
+scopehoisting
+
+#### 其他
+
+ssr（减少白屏时间，seo友好）
+
+
+
+
+
+
+
 #### webpack 打包 vue 速度太慢怎么办？
 
 #### 打包优化
@@ -34,17 +84,79 @@
 
 #### development
 
-热更新配置
+- 热更新配置
 
-sourcemap，方便调试定位代码
+- sourcemap，方便调试定位代码
 
 #### production
 
-文件指纹
+- 代码压缩
+  - html（html-webpack-plugin的minify参数）
+  - css（optimize-css-assets-webpack-plugin+cssnano）
+  - js（内置uglifyjs-webpack-plugin插件，默认开启））
+- 文件指纹
+- treeshaking
+- scope hoisting
+- 速度优化
+  - 基础包cdn
+- 体积优化
+  - 代码分割
 
-代码压缩（html（html-webpack-plugin的minify参数），css（optimize-css-assets-webpack-plugin+cssnano），js（内置uglifyjs-webpack-plugin插件，默认开启））
+#### 基础配置
 
-公共资源分离
+- 资源解析（es6、jsx、ts等语法、css、less、图片、字体）
+- 样式增强（css前缀补全、pxtorem）
+- css提取独立文件
+- 构建目录清理
+- 多页面打包
+
+- 优化构建命令行打印信息：stats配置项；friendly-errors-webpack-plugin（增加高亮提示）
+
+- 错误捕获和处理
+
+  构建是否成功：echo $? 获取错误码；
+
+  compiler在每次构建结束后会触发done这个hook
+
+  process.exist 主动抛错误码
+
+  可以上报构建日志
+
+- 
+
+#### SSR
+
+- output的libraryTarget设置
+- css解析ignore
+
+
+
+## 构建速度分析
+
+speed-measure-webpack-plugin
+
+- 分析整个打包总耗时
+- 每个loader和插件执行耗时
+
+
+
+## 构建速度优化
+
+- 使用高版本webpack+node
+- 多进程多实例构建
+
+
+
+## 体积分析
+
+webpack-bundle-analyzer
+
+- 依赖的第三方文件大小
+- 业务里的组件代码大小
+
+
+
+
 
 
 
