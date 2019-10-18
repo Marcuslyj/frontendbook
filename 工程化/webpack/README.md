@@ -143,7 +143,18 @@ speed-measure-webpack-plugin
 ## 构建速度优化
 
 - 使用高版本webpack+node
+
 - 多进程多实例构建
+
+  thread-loader：打包任务划分成多个进程
+
+- 多进程多实例，并行压缩
+
+  方法1： parallel-uglify-plugin
+
+  方法2：
+
+  方法3：
 
 
 
