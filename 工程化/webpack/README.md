@@ -152,9 +152,27 @@ speed-measure-webpack-plugin
 
   方法1： parallel-uglify-plugin
 
-  方法2：
+  方法2： uglifyjs--webpack-plugin开启parallel，不支持es6
 
-  方法3：
+  方法3： terser-webpack-plugin开启parallel
+
+- 分包
+
+- 缓存，提升二次构建速度
+
+  - babel-loader开启缓存
+  - terser-webpack-plugin开启缓存（压缩阶段）
+  - 使用cache-loader或者hard-source-webpack-plugin（模块缓存）
+
+- 缩小构建目标
+
+  如，babel-loader不解析node_modules
+
+- 减少文件搜索范围
+
+  resolve.modules, resolve.mainFields, resolve.extensions
+
+  合理使用alias（直接找指定路径）
 
 
 
@@ -163,7 +181,43 @@ speed-measure-webpack-plugin
 webpack-bundle-analyzer
 
 - 依赖的第三方文件大小
+
 - 业务里的组件代码大小
+
+  
+
+  
+
+## 构建体积优化
+
+- 公共资源分离
+
+- 图片压缩
+
+  image-webpack-loader
+
+- 擦除不用的代码
+
+  - js：treeshaking
+  - css： purgecss-webpack-plugin + mini-css-extract-plugin
+  
+- scope hoisting
+
+- 动态polyfill
+
+  polyfill.io官方提供的服务，根据ua动态加载
+
+
+
+
+
+## 进一步分包
+
+DLLPlugin分包
+
+DllReferencePlugin引用manifest.json
+
+
 
 
 
