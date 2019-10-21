@@ -240,13 +240,14 @@ DllReferencePlugin引用manifest.json
 
 1. 优化 webpack 减少模块打包体积（查看每个模块的体积大小，是否可以优化），code-split 按需加载（路由懒加载），去掉dead code
 2. 服务端渲染，在服务端事先拼装好首页所需的 html
-3. 首页加 loading 或 骨架屏 （仅仅是优化体验）
-4. 服务端开启gzip压缩，（前端项目打包可以直接打包出gzip，减少服务器工作量）
-5. 提取公共代码包
-6. cdn
-7. 合理使用resource hint，即preload，prefetch, dns-connect等
-8. 缓存（文件指纹）
-9. 图片方面，像淘宝，会优先使用webp，如果不支持再用jpg，以及，小图采用base64编码，雪碧图等
+3. 预渲染
+4. 首页加 loading 或 骨架屏 （仅仅是优化体验）
+5. 服务端开启gzip压缩，（前端项目打包可以直接打包出gzip，减少服务器工作量）
+6. 提取公共代码包
+7. cdn
+8. 合理使用resource hint，即preload，prefetch, dns-connect等
+9. 缓存（文件指纹）
+10. 图片方面，像淘宝，会优先使用webp，如果不支持再用jpg，以及，小图采用base64编码，雪碧图等
 
 
 

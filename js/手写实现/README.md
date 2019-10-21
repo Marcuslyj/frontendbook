@@ -65,7 +65,7 @@ let obj = {
     }
 }
 function Folder(obj) {
-    return new Proxy(obj ? obj : {}, {
+    return new Proxy(obj = {}, {
         get: (target, property) => {
             if (!(property in target)) {
                 target[property] = new Folder()
