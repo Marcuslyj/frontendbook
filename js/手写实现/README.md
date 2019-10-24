@@ -81,3 +81,4 @@ let fo = new Folder(obj)
 #### setTimeout 是否是个准时的定时器，为什么？如果要实现一个相对准时的定时器，怎么做？
 
 在js中如果打算使用setInterval进行倒数,计时等功能,往往是不准确的,因为setInterval的回调函数并不是到时后立即执行,而是等系统计算资源空闲下来后才会执行.而下一次触发时间则是在setInterval回调函数执行完毕之后才开始计时,所以如果setInterval内执行的计算过于耗时,或者有其他耗时任务在执行,setInterval的计时会越来越不准,延迟很厉害.
+
