@@ -162,7 +162,7 @@ speed-measure-webpack-plugin
 
   方法3： terser-webpack-plugin开启parallel
 
-- 分包
+- 分包（基础包cdn）
 
 - 缓存，提升二次构建速度
 
