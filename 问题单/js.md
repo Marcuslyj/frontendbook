@@ -6,3 +6,7 @@ new 做了什么？
 
 继承实现？
 
+加载js，defer async
+
+this
+
