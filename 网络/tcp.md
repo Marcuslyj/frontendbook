@@ -60,9 +60,26 @@ IP 协议只是一个地址协议，并不保证数据包的完整。如果路�
 
 
 
+握手状态：SYN_SENT、SYN_RCVD、ESTABLISHED、ESTABLISHED
+
+
+
 > 挥手
 
 两边都要单独发起关闭
+
+
+
+挥手状态：FIN_WAIT1、CLOSE_WAIT、FIN_WAIT2、LAST_ACK、TIME_WAIT
+
+
+
+##### 为什么要TIME_WAIT（2个MS）
+
+MSL就是maximium segment lifetime——最长报文寿命
+
+1. 重传最后一个ACK报文，确保服务端收到
+2. 该链接在对话期间于网际路由上产生的残留报文(因为路径过于崎岖，数据报文走的时间太长，重传的报文都收到了，原始报文还在路上)传过来时，都会被立即丢弃掉。4分钟的时间足以使得这些残留报文彻底消逝。不然当新的端口被重复利用时，这些残留报文可能会干扰新的链接。
 
 
 
