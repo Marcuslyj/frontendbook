@@ -84,6 +84,34 @@ function createKeyToOldIdx (children, beginIdx, endIdx) {
 
 
 
+## react与vue视图更新
+
+vue性能更好，vue做了依赖收集，大概知道哪里的数据发生变化。像组件内部数据发生变化，会把组件的render watcher添加到更新队列里边，做相应视图的diff。react并没有依赖收集，所以是整个视图更新的。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
