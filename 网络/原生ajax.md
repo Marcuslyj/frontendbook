@@ -38,3 +38,12 @@ export function post(url, data) {
 }
 ```
 
+
+
+
+
+
+
+- `application/x-www-form-urlencoded`: 表示使用URL编码的方式来编码表单。如果没有将`enctype`属性设置为任何值，那么这就是**默认值**。
+- `multipart/form-data`: 当用户想上传文件这种二进制等文件或者前面的那个方式不能满足时，使用这种类型的表单
+- `text/plain`: 文本形式，只发送数据而不进行任何编码时使用。
