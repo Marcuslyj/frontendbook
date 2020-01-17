@@ -24,3 +24,45 @@ This means that when you call `setTimeout` the callback that is passed into the 
 
 I would suggest watching this video on the topic, it goes into great detail and helps you visualize what is going on: [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 
+
+
+
+
+
+
+
+
+the call stack
+
+one thread == one call stack == one the at a time
+
+![image-20200117171228378](../_assets/image/image-20200117171228378.png)
+
+
+
+
+
+
+
+![image-20200117171340603](../_assets/image/image-20200117171340603.png)
+
+
+
+
+
+
+
+![image-20200117172118122](../_assets/image/image-20200117172118122.png)
+
+![image-20200117172143851](../_assets/image/image-20200117172143851.png)
+
+
+
+![image-20200117172212985](../_assets/image/image-20200117172212985.png)
+
+
+
+![image-20200117172243595](../_assets/image/image-20200117172243595.png)
+
+![image-20200117172320986](../_assets/image/image-20200117172320986.png)
+
