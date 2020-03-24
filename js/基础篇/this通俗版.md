@@ -2,19 +2,33 @@
 
 - 作为一个函数(function)——skulk()，直接被调用。
 
-  > 非严格模式：window，严格模式：undefined
+  > 默认绑定，this指向全局对象。非严格模式：window，严格模式：undefined
 
 - 作为一个方法(method)——ninja.skulk()，关联在一个对象上，实现面向对象编程。
 
-  > 该对象会成为函数的上下文
+  > 隐式绑定，该对象会成为函数的上下文
 
-- 作为一个构造函数(constructor)——new Ninja()，实例化一个新的对象。
-
-  > 新创建的对象
 
 - 通过函数的apply或者call方法——skulk.apply(ninja)或者skulk.call(ninja)。
 
   > 显式绑定
+  
+- 作为一个构造函数(constructor)——new Ninja()，实例化一个新的对象。
+
+  > 新创建的对象
+
+
+
+
+
+```js
+// 硬绑定，后面如何调用，this指向都不会改变
+function bind(fn, obj) {
+	return function() {
+        return fn.apply( obj, arguments ); 
+    }; 
+}
+```
 
 
 
@@ -25,6 +39,19 @@
 
 
 
+
+#### new 做了什么？
+
+1. 创建（或者说构造）一个全新的对象。
+2. 这个新对象会被执行 [[ 原型 ]] 连接。
+3. 这个新对象会绑定到函数调用的 this。
+4. 如果函数没有返回其他对象，那么 new 表达式中的函数调用会自动返回这个新对象。
+
+
+
+#### 优先级
+
+new > call、apply（显式绑定）> obj1.foo()（隐式绑定）> 默认绑定
 
 
 
