@@ -8,28 +8,29 @@ this 是在运行时进行绑定的，并不是在编写时绑定，它的上下
 
 
 
-4种方式调用一个函数
+### this绑定规则（4种方式调用）
 
-- 作为一个函数(function)——skulk()，直接被调用。
+- 默认绑定：指向全局对象（window），严格模式指向undefined。
 
-  > 默认绑定，this指向全局对象。非严格模式：window，严格模式：undefined
+  作为一个函数(function)——skulk()，直接被调用。
 
-- 作为一个方法(method)——ninja.skulk()，关联在一个对象上，实现面向对象编程。
+- 隐式绑定：谁调用指向谁
 
-  > 隐式绑定，该对象会成为函数的上下文
+  作为一个方法(method)——ninja.skulk()，关联在一个对象上，实现面向对象编程。
 
+- 显示绑定
 
-- 通过函数的apply或者call方法——skulk.apply(ninja)或者skulk.call(ninja)。
+  通过函数的apply或者call方法——skulk.apply(ninja)或者skulk.call(ninja)。
 
-  > 显式绑定
+- new
+
+  作为一个构造函数(constructor)——new Ninja()，实例化一个新的对象。
+
   
-- 作为一个构造函数(constructor)——new Ninja()，实例化一个新的对象。
 
-  > 新创建的对象
+### 箭头函数
 
-
-
-
+箭头函数不使用 this 的四种标准规则，而是根据外层（函数或者全局）作用域来决 定 this。
 
 ```js
 // 硬绑定，后面如何调用，this指向都不会改变
@@ -42,28 +43,19 @@ function bind(fn, obj) {
 
 
 
-另外：箭头函数
+### new 做了什么
 
-箭头函数没有单独的this值。箭头函数的this与声明所在的上下文的相同。
-
-
-
-
-
-#### new 做了什么？
-
-1. 创建（或者说构造）一个全新的对象。
-2. 这个新对象会被执行 [[ 原型 ]] 连接。
-3. 这个新对象会绑定到函数调用的 this。
-4. 如果函数没有返回其他对象，那么 new 表达式中的函数调用会自动返回这个新对象。
+1. A new object is created in memory.创建对象
+2. The new object’s internal [[Prototype]] pointer is assigned to the constructor’s prototype property.原型连接
+3. The this value of the constructor is assigned to the new object (so this points to the new object).构造函数的this指向创建对象
+4. The code inside the constructor is executed (adds properties to the new object).执行构造函数
+5. If the constructor function returns a non-null value, that object is returned. Otherwise, the new object that was just created is returned.返回对象
 
 
 
-#### 优先级
+### 优先级
 
-new > call、apply（显式绑定）> obj1.foo()（隐式绑定）> 默认绑定
-
-
+new >>  过 call、apply（显式绑定）或者硬绑定 >> 隐式绑定 >> 默认绑定
 
 
 
