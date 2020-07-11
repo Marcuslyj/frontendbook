@@ -8,7 +8,7 @@
 
 **apply做了更多的判断转换操作，最后调用的是call。**
 
-```
+```js
 Function.prototype.apply (thisArg, argArray)
 ```
 
