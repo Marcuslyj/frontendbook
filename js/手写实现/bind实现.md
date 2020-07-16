@@ -32,3 +32,17 @@ Function.prototype.myBind = function (context) {
 }
 ```
 
+
+
+简化版
+
+```js
+Function.prototype.myBind = function (context, ...args){
+  let self = this
+  let fn = function(){
+  	return self.apply(context, [...args, ...arguments])
+  }
+  return fn
+}
+```
+
