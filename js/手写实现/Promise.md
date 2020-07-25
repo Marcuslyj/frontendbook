@@ -337,7 +337,13 @@ Promise.race = function(promises){
 
 
 
+## Cancelable
 
+思路：
+
+Promise.race
+
+加一个promise，轮询检查canceled标志位，if canceled，则resolve
 
 
 
